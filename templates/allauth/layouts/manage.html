@@ -1,0 +1,180 @@
+{% extends "base.html" %}  
+{% block body %}
+<div class="flex-grow-1 row">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="d-flex flex-column flex-shrink-0 p-3" style="width: 280px">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+            <svg class="bi pe-none me-2" width="40" height="32" aria-hidden="true">
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Sidebar</span>
+          </a>
+          <hr />
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+              <a href="/" class="nav-link active" aria-current="page">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#home"></use>
+                </svg>
+                Home
+              </a>
+            </li>
+            
+            {% url 'account_email' as email_url_ %}
+            {% if email_url_ %}
+            <li>
+              <a href="{{ email_url_ }}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#speedometer2"></use>
+                </svg>
+                Change Email
+              </a>
+            </li>
+            {% endif %}
+      
+            {% url 'account_change_password' as change_password_url_ %}
+            {% if change_password_url_ %}
+            <li>
+              <a href="{{ change_password_url_ }}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#table"></use>
+                </svg>
+                Change Password
+              </a>
+            </li>
+            {% endif %}
+      
+            {% url 'account_change_phone' as phone_url_ %}
+            {% if phone_url_ %}
+            <li>
+              <a href="{{phone_url_}}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#grid"></use>
+                </svg>
+                Change Phone
+              </a>
+            </li>
+            {% endif %}
+      
+            {% url 'socialaccount_connections' as connections_url_ %}
+            {% if connections_url_ %}
+            <li>
+              <a href="{{connections_url_}}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#people-circle"></use>
+                </svg>
+                Third-Party Accounts
+              </a>
+            </li>
+            {% endif %}
+      
+            {% url 'mfa_index' as mfa_index_url_ %}
+            {% if mfa_index_url_ %}
+            <li>
+              <a href="{{mfa_index_url_}}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#people-circle"></use>
+                </svg>
+                Two-Factor Authentication
+              </a>
+            </li>
+            {% endif %}
+      
+            {% url 'usersessions_list' as usersessions_list_url_ %}
+            {% if usersessions_list_url_ %}
+            <li>
+              <a href="{{usersessions_list_url_}}" class="nav-link">
+                <svg
+                  class="bi pe-none me-2"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <use xlink:href="#people-circle"></use>
+                </svg>
+                Sessions
+              </a>
+            </li>
+            {% endif %}
+          </ul>
+          <hr />
+          <div class="dropdown">
+            <a
+              href="#"
+              class="d-flex align-items-center text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="{{ user.profile.avatar.url }}"
+                alt="{{ user.username }}'s avatar"
+                width="32"
+                height="32"
+                class="rounded-circle me-2"
+              />
+              <strong>{{ request.user.username }}</strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign out</a></li>
+            </ul>
+          </div>
+      </div>
+      <main class="col-sm-8 col-md-9 col-lg-10">
+        <div id="content" class="container">
+          {% comment %}
+            {% if messages %}
+              <div class="pt-4">   
+                {% for message in messages %} 
+                        {% element alert level=message.tags %} 
+                            {% slot message %} 
+                                {{ message }} 
+                            {% endslot %} 
+                        {% endelement %} 
+                    {% endfor %}
+              </div>
+            {% endif %}            
+          {% endcomment %}
+          
+          {% block content %}
+          {% endblock content %}
+        </div>
+      </main>
+    </div>
+  </div>
+</div>
+{% endblock body %}
