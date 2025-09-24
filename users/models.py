@@ -13,11 +13,11 @@ def validate_dob(value):
         raise ValidationError("Date of birth cannot be in the future.")
     
     # Optional: Minimum age check (e.g., 13 years)
-    age = today.year - value.year
-    if today.month < value.month or (today.month == value.month and today.day < value.day):
-        age -= 1
-    if age < 13:
-        raise ValidationError("User must be at least 13 years old.")
+    # age = today.year - value.year
+    # if today.month < value.month or (today.month == value.month and today.day < value.day):
+    #     age -= 1
+    # if age < 13:
+    #     raise ValidationError("User must be at least 13 years old.")
     
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
