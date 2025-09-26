@@ -1,5 +1,23 @@
+from django.urls import reverse
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
+from django.views.generic import DetailView, RedirectView
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+from .models import Profile
 from .forms import ProfileForm
+
+class ProfileDetailView(LoginRequiredMixin, DetailView):
+    model = User
+    slug_field = "username"
+    slug_url_kwarg = "username"
+    template_name = "user_detail.html"
+
+class UserRedirectView(LoginRequiredMixin, RedirectView):
+    permanent = False
+
+    def get_redirect_url(self) -> str:
+        return reverse("profile-details", kwargs={"username": self.request.user.username})
 
 def update_profile(request):
     if request.method == 'POST':

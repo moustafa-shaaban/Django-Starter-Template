@@ -1,13 +1,15 @@
-{% extends 'base.html' %}
+{% extends 'allauth/layouts/manage.html' %}
 {% load crispy_forms_tags %}
 
 
 {% block content %}
-    <h3>Update profile</h3>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <input type="submit" value="Update">
-    </form>
+    <div class="col-5">
+        <h3>Update profile</h3>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <input type="submit" value="Update">
+        </form>
+    </div>
 {% endblock content %}
     
