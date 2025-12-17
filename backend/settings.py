@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
 
     # Third-Party
@@ -44,7 +45,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'allauth',
     'allauth.account',
-    'django.contrib.humanize',
+    'allauth.mfa',
     'allauth.usersessions',
     'debug_toolbar',
     'crispy_forms',
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'graphene_django',
     'corsheaders',
+    'django_browser_reload',
     # My Apps
     'users'
 ]
@@ -71,6 +73,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
     'allauth.account.middleware.AccountMiddleware',
     'allauth.usersessions.middleware.UserSessionsMiddleware'
 ]
