@@ -35,12 +35,17 @@ urlpatterns = [
         name="home",
     ),
     path(
+        "settings/",
+        TemplateView.as_view(template_name="settings.html"),
+        name="settings",
+    ),
+    path(
         "about/",
         TemplateView.as_view(template_name="about.html"),
         name="about",
     ),
 
-    path("graphql", GraphQLView.as_view(graphiql=True)),
+    path("graphql/", GraphQLView.as_view(graphiql=True)),
     path('api/schema/', SpectacularAPIView.as_view(), name='schema'),
     path('api/docs/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     # Redoc UI:
