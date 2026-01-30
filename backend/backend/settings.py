@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'corsheaders',
     'django_browser_reload',
+    'django_extensions',
     # My Apps
     'applications.users'
 ]
