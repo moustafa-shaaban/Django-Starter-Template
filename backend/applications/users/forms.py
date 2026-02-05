@@ -26,3 +26,28 @@ class ProfileForm(forms.ModelForm):
                 raise forms.ValidationError("You must be at least 18 years old.")
         
         return dob
+    
+
+class CustomSignupForm(forms.Form):
+    first_name = forms.CharField(
+        max_length=30, widget=forms.TextInput(attrs={'placeholder': 'First Name'})
+    )
+    last_name = forms.CharField(
+        max_length=30, widget=forms.TextInput(attrs={'placeholder': 'Last Name'})
+    )
+
+    avatar = forms.ImageField(
+        help_text="Your Avatar",
+        required=True
+    )
+
+    def signup(self, request, user):
+        """Called after user is created but before saved to handle additional fields"""
+        user.firt_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data.get('last_name')
+
+        user.save()
+
+        profile = Profile.objects.create(user=user)
+        profile.avatar = self.cleaned_data['avatar']
+        profile.save()

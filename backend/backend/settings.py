@@ -214,3 +214,5 @@ SPECTACULAR_SETTINGS = {
     "SERVE_PERMISSIONS": ["rest_framework.permissions.IsAdminUser"],
     "SCHEMA_PATH_PREFIX": "/api/",
 }
+
+ACCOUNT_SIGNUP_FORM_CLASS = 'applications.users.forms.CustomSignupForm'
