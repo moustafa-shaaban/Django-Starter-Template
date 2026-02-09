@@ -94,38 +94,41 @@
                         </a>
                     </li>
                     {% endif %}
-                    <li>
-                        <a href="#" class="nav-link">
-                            <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                                <use xlink:href="#speedometer2"></use>
-                            </svg>
-                            Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                                <use xlink:href="#table"></use>
-                            </svg>
-                            Orders
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                                <use xlink:href="#grid"></use>
-                            </svg>
-                            Products
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link">
-                            <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
-                                <use xlink:href="#people-circle"></use>
-                            </svg>
-                            Customers
-                        </a>
-                    </li>
+
+                    {% comment %}
+                        <li>
+                            <a href="#" class="nav-link">
+                                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+                                    <use xlink:href="#speedometer2"></use>
+                                </svg>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+                                    <use xlink:href="#table"></use>
+                                </svg>
+                                Orders
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+                                    <use xlink:href="#grid"></use>
+                                </svg>
+                                Products
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link">
+                                <svg class="bi pe-none me-2" width="16" height="16" aria-hidden="true">
+                                    <use xlink:href="#people-circle"></use>
+                                </svg>
+                                Customers
+                            </a>
+                        </li>
+                    {% endcomment %}
                 </ul>
                 <hr />
                 <div class="dropdown">
@@ -139,7 +142,6 @@
                         <strong class="p-2">{{ user.username }}</strong>
                     </a>
                     <ul class="dropdown-menu text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
                         <li>
                             <a class="dropdown-item" href="{% url 'profile-details' username=request.user.username %}">Profile</a>
                         </li>

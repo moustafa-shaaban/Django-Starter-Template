@@ -18,11 +18,11 @@ urlpatterns = [
         TemplateView.as_view(template_name="index.html"),
         name="home",
     ),
-    path(
-        "settings/",
-        TemplateView.as_view(template_name="settings.html"),
-        name="settings",
-    ),
+    # path(
+    #     "settings/",
+    #     TemplateView.as_view(template_name="settings.html"),
+    #     name="settings",
+    # ),
     path(
         "about/",
         TemplateView.as_view(template_name="about.html"),

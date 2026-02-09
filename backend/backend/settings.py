@@ -216,3 +216,14 @@ SPECTACULAR_SETTINGS = {
 }
 
 ACCOUNT_SIGNUP_FORM_CLASS = 'applications.users.forms.CustomSignupForm'
+
+MFA_SUPPORTED_TYPES = ["totp", "webauthn", "recovery_codes"]
+
+# Optional: enable support for logging in using a (WebAuthn) passkey.
+MFA_PASSKEY_LOGIN_ENABLED = True
+
+# Optional -- use for local development only: the WebAuthn uses the
+#``fido2`` package, and versions up to including version 1.1.3 do not
+# regard localhost as a secure origin, which is problematic during
+# local development and testing.
+MFA_WEBAUTHN_ALLOW_INSECURE_ORIGIN = True
