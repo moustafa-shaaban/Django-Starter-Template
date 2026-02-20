@@ -164,10 +164,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
@@ -194,7 +191,7 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = ["http://localhost:5173","http://localhost:3000" ]  # We add your frontend URL here.
+CORS_ALLOWED_ORIGINS = ["http://localhost:5173","http://localhost:3000" ]
 CSRF_TRUSTED_ORIGINS = ["http://localhost:5173","http://localhost:3000" ]
 
 
@@ -215,15 +212,18 @@ SPECTACULAR_SETTINGS = {
     "SCHEMA_PATH_PREFIX": "/api/",
 }
 
+ACCOUNT_SIGNUP_FIELDS = ["email*", "password1*", "password2*"]
+ACCOUNT_LOGIN_BY_CODE_ENABLED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_VERIFICATION_BY_CODE_ENABLED = True
+ACCOUNT_PASSWORD_RESET_BY_CODE_ENABLED = True
+
 ACCOUNT_SIGNUP_FORM_CLASS = 'applications.users.forms.CustomSignupForm'
 
-MFA_SUPPORTED_TYPES = ["totp", "webauthn", "recovery_codes"]
-
-# Optional: enable support for logging in using a (WebAuthn) passkey.
+MFA_SUPPORTED_TYPES = [
+    "webauthn",
+    "totp",
+    "recovery_codes",
+]
 MFA_PASSKEY_LOGIN_ENABLED = True
-
-# Optional -- use for local development only: the WebAuthn uses the
-#``fido2`` package, and versions up to including version 1.1.3 do not
-# regard localhost as a secure origin, which is problematic during
-# local development and testing.
-MFA_WEBAUTHN_ALLOW_INSECURE_ORIGIN = True
+MFA_PASSKEY_SIGNUP_ENABLED = True

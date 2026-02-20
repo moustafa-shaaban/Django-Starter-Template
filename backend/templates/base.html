@@ -85,7 +85,7 @@
         .bd-mode-toggle .dropdown-menu .active .bi {
           display: block !important;
         }
-      </style>
+    </style>
     {% htmx_script %}
 
 </head>
@@ -203,8 +203,25 @@
     {% block content %}
     {% endblock content %}
   {% endblock body %}
+
+  <div id="toast-container" class="toast-container position-fixed bottom-0 start-0 p-3"></div>
       
-        
+  {% if messages %}
+  <script id="django-messages" type="application/json">
+  [
+      {% for message in messages %}
+      {
+          "level": "{{ message.tags }}",
+          "text": "{{ message|escapejs }}",
+          "extra_tags": "{{ message.extra_tags|escapejs }}"
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+  ]
+  </script>
+  {% endif %}
+
+  <!-- Your JS files -->
+  <script src="{% static 'js/notifications.js' %}"></script>
   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
