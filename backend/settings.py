@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
 
 
-    # Third-Party
+    # Third-Party Apps
 
     'django_htmx',
     'allauth',
@@ -59,6 +59,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_browser_reload',
     'django_extensions',
+    'import_export',
+
     # My Apps
     'applications.users'
 ]
@@ -148,6 +150,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [str(BASE_DIR / "static")]
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
