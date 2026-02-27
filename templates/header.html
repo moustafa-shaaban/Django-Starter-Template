@@ -19,6 +19,8 @@
             <li class="nav-item">
               <a class="nav-link" data-bs-toggle="offcanvas" href="#sidebar" role="button" aria-controls="sidebar">Sidebar</a>
             </li>
+
+            {% include 'sidebar.html' %}
           {% endif %}
           <li class="nav-item dropdown">
             <button class="nav-link dropdown-toggle" id="bd-theme" data-bs-toggle="dropdown" aria-expanded="false">
@@ -97,8 +99,6 @@
       </div>
     </div>
   </nav>
-
-  {% include 'sidebar.html' %}
   
   {% comment %}
 
