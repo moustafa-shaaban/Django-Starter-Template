@@ -20,6 +20,8 @@ django-import-export==4.4.0
 django-unfold==0.74.1
 djangorestframework==3.16.1
 drf-spectacular==0.29.0
+factory_boy==3.3.3
+Faker==40.5.1
 fido2==2.0.0
 graphene==3.4.3
 graphene-django==3.2.3
@@ -48,5 +50,3 @@ typing_extensions==4.15.0
 tzdata==2025.2
 uritemplate==4.2.0
 urllib3==2.5.0
-factory-boy>=3.3.3
-faker>=40.5.1
