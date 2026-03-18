@@ -11,6 +11,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularRedocView, Spec
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('silk/', include('silk.urls', namespace='silk')),
     path('accounts/', include('allauth.urls')),
     path('users/', include('applications.users.urls')),
     path(

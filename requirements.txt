@@ -17,12 +17,14 @@ django-extensions==4.1
 django-filter==25.1
 django-htmx==1.25.0
 django-import-export==4.4.0
+django-silk==5.5.0
 django-unfold==0.74.1
 djangorestframework==3.16.1
 drf-spectacular==0.29.0
 factory_boy==3.3.3
 Faker==40.5.1
 fido2==2.0.0
+gprof2dot==2025.4.14
 graphene==3.4.3
 graphene-django==3.2.3
 graphql-core==3.2.7

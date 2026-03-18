@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'django_extensions',
     'import_export',
+    'silk',
 
     # My Apps
     'applications.users'
@@ -79,6 +80,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'silk.middleware.SilkyMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django_htmx.middleware.HtmxMiddleware',
     'django_browser_reload.middleware.BrowserReloadMiddleware',
@@ -238,3 +240,6 @@ ACCOUNT_PRESERVE_USERNAME_CASING = False
 ACCOUNT_ADAPTER = 'applications.users.adapters.UsersAdapter'
 
 AUTH_USER_MODEL = "users.CustomUser"
+
+SILKY_PYTHON_PROFILER = True
+# SILKY_PYTHON_PROFILER_BINARY = True
